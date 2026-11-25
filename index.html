@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Koboi Tempasuk · Game Kota Belud</title>
+<meta name="description" content="Game pelayar percuma tentang Kota Belud, Sabah. Latih kuda Kilat, jelajah Pulau Mantanani, Lasau Podi, Kampung Sayap dan Polumpung Melangkap, dan ketuai perarakan Tamu Besar.">
+<meta property="og:title" content="Koboi Tempasuk · Game Kota Belud">
+<meta property="og:description" content="Jelajah Kota Belud bersama kuda Kilat. Percuma, terus main dalam pelayar.">
+<meta property="og:image" content="img/s_title.jpg">
+<!-- AdSense (iklan banner di halaman ini): buang komen selepas akaun diluluskan, tukar ca-pub-XXXXXXXXXXXXXXXX
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, proud, kampung-playful — an invitation to play and to visit Kota Belud
+   IDEA: a woven kain dastar band ties every section together
+   PICTURE: real screenshots of the game framed like postcards from Kota Belud
+   COLOUR and TYPE: Bajau red, yellow, green on white; deep ink hero; Fredoka + Nunito
+   LAYOUT: hero with big play button and title shot, feature postcards, teachers band, support band, footer */
+:root{--red:#c8102e;--red2:#8f0b20;--yel:#ffc72c;--grn:#1f7a3a;--ink:#1c2230;--mut:#5b6475;--bg:#fff}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:700 17px/1.55 Nunito,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--red)}
+.weave{height:10px;background:repeating-linear-gradient(90deg,var(--red) 0 18px,var(--yel) 18px 27px,var(--grn) 27px 38px,var(--ink) 38px 42px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 max(5vw,18px)}
+h1,h2,h3{font-family:Fredoka,sans-serif;line-height:1.05;margin:0;text-wrap:balance}
+h1{font-size:clamp(46px,8vw,86px);color:#fff;text-shadow:0 5px 0 var(--red2)}
+h2{font-size:clamp(30px,4vw,44px);margin-bottom:10px}
+h3{font-size:21px;margin:12px 0 4px}
+.hero{background:var(--ink);color:#fff;padding:clamp(28px,5vw,64px) 0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:center}
+.tag{display:inline-block;background:var(--yel);color:var(--ink);font:600 15px Fredoka;padding:4px 12px;border-radius:8px}
+.hero p{font-size:19px;color:#e9ecf2;max-width:520px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 20px Fredoka,sans-serif;text-decoration:none;border-radius:14px;padding:14px 26px;min-height:48px;background:var(--red);color:#fff;box-shadow:0 5px 0 var(--red2)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--red2)}
+.btn.yel{background:var(--yel);color:var(--ink);box-shadow:0 5px 0 #c79400}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:0 5px 0 #d3cdbf}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.shot{border-radius:18px;overflow:hidden;border:4px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.45);background:#123}
+.shot img{display:block;width:100%;height:auto}
+.small{font-size:14px;color:var(--mut)}
+.band{padding:clamp(34px,5vw,70px) 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px;margin-top:18px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 0 rgba(0,0,0,.08),0 10px 26px rgba(0,0,0,.1);border:1px solid #eee6d4}
+.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.card div{padding:4px 16px 16px}
+.card p{margin:0;font-weight:600;color:#3a4150}
+.list{columns:2 260px;gap:28px;padding-left:20px;margin:12px 0 0}
+.list li{margin:6px 0;break-inside:avoid}
+.teach{background:#f6f3ea}
+.teach .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center}
+.support{background:var(--grn);color:#fff;text-align:center}
+.support p{max-width:620px;margin:8px auto 18px;color:#e6f5c8}
+.ad-slot{display:none;margin:24px auto;max-width:970px;min-height:90px;text-align:center}
+footer{background:var(--ink);color:#cfd5df;padding:28px 0;font-size:15px}
+footer a{color:#fff}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+@media (max-width:800px){.hero .wrap,.teach .wrap{grid-template-columns:minmax(0,1fr)}.hero .shot{order:-1}}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .08s,box-shadow .08s}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <div>
+   <span class="tag">Kota Belud · Sabah</span>
+   <h1>Koboi<br>Tempasuk</h1>
+   <p>Game pelayar percuma tentang Kota Belud. Latih kuda ko, Kilat, bantu orang kampung, terokai tempat menarik di seluruh daerah, dan ketuai perarakan Tamu Besar!</p>
+   <div class="btns"><a class="btn" href="main.html">Main sekarang, percuma ▶</a><a class="btn yel" href="https://pennachart.gumroad.com" target="_blank" rel="noopener">Sokong pembuat ♥</a></div>
+   <p class="small" style="color:#aab3c2">Boleh dimain di telefon, tablet dan komputer. Tiada muat turun, tiada akaun.</p>
+  </div>
+  <div class="shot"><img src="img/s_map.jpg" alt="Peta pekan Kota Belud dalam game, dengan kuda Kilat berhias, tamu dan jalan raya" width="960" height="600"></div>
+ </div>
+</header>
+<div class="weave"></div>
+
+<!-- Ruang iklan 1: tukar display:none kepada display:block selepas AdSense diluluskan
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+-->
+
+<section class="band">
+ <div class="wrap">
+  <h2>Jelajah seluruh daerah</h2>
+  <p class="small" style="font-size:17px;max-width:720px">Tekan butang kompas dalam game untuk ke destinasi sebenar di Kota Belud. Setiap tempat ada aktiviti dan fakta, dan ko boleh kumpul cop Pasport Jelajah.</p>
+  <div class="grid">
+   <article class="card"><img src="img/s_snorkel.jpg" alt="Snorkel di Pulau Mantanani" loading="lazy"><div><h3>Snorkel Pulau Mantanani</h3><p>Ambil gambar ikan dan penyu, tapi jangan sentuh. Elak ubur-ubur!</p></div></article>
+   <article class="card"><img src="img/s_bintang.jpg" alt="Langit malam berbintang di Lasau Podi" loading="lazy"><div><h3>Bintang di Lasau Podi</h3><p>Tangkap gambar tahi bintang di bawah langit gelap tanpa lampu jalan.</p></div></article>
+   <article class="card"><img src="img/s_jala.jpg" alt="Piknik dan menjala di pantai" loading="lazy"><div><h3>Piknik & menjala</h3><p>Tebar jala tepat pada masanya untuk makan tengah hari keluarga.</p></div></article>
+   <article class="card"><img src="img/s_parade.jpg" alt="Perarakan kuda Tamu Besar" loading="lazy"><div><h3>Perarakan Tamu Besar</h3><p>Ikut rentak kompang dan ketuai perarakan kuda bersama Kilat yang berhias.</p></div></article>
+  </div>
+  <ul class="list">
+   <li>Tamu, sawah padi, tenun dastar dan sampan di Sungai Tempasuk</li>
+   <li>Mendaki ke air terjun Kampung Sayap</li>
+   <li>Berkhemah di Polumpung Melangkap</li>
+   <li>Lumba renang di Karanahan View</li>
+   <li>Jogging senja di Kampung Sangkir</li>
+   <li>Misi banjir: bantu APM pindahkan penduduk ke PPS</li>
+   <li>24 fakta sebenar tentang Kota Belud dalam Buku Fakta</li>
+   <li>Hias Kilat di Kedai Hiasan Kuda</li>
+  </ul>
+ </div>
+</section>
+
+<section class="band teach">
+ <div class="wrap">
+  <div class="shot"><img src="img/s_dist.jpg" alt="Peta daerah Kota Belud dengan destinasi Pasport Jelajah" loading="lazy" width="960" height="600"></div>
+  <div>
+   <h2>Untuk guru dan ibu bapa</h2>
+   <p>Game ni boleh dijadikan aktiviti kelas tentang tempat, budaya dan keselamatan:</p>
+   <ul>
+    <li>Kenali tempat dan warisan Kota Belud melalui Buku Fakta</li>
+    <li>Keselamatan banjir dan berkhemah di tepi sungai</li>
+    <li>Jaga alam: kutip sampah pantai, jangan ganggu penyu</li>
+    <li>Ingatan, ketepatan masa dan membuat keputusan</li>
+   </ul>
+   <p class="small">Semua watak dalam game adalah rekaan. Peta ialah lakaran, bukan skala sebenar.</p>
+  </div>
+ </div>
+</section>
+
+<!-- Ruang iklan 2
+<div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+-->
+
+<section class="band support">
+ <div class="wrap">
+  <h2>Suka game ni?</h2>
+  <p>Koboi Tempasuk percuma untuk semua. Kalau ko mahu bantu pembuatnya terus menambah tempat dan aktiviti baru, ko boleh menderma sebarang jumlah.</p>
+  <a class="btn yel" href="https://pennachart.gumroad.com" target="_blank" rel="noopener">Sokong di Gumroad ♥</a>
+  <p class="small" style="color:#cfe8c9;margin-top:14px">Adik-adik, minta izin ibu bapa sebelum menderma.</p>
+ </div>
+</section>
+
+<div class="weave"></div>
+<footer>
+ <div class="wrap">
+  <div>Koboi Tempasuk · Idea by Roryjack</div>
+  <nav><a href="main.html">Main</a> · <a href="tentang.html">Tentang</a> · <a href="privasi.html">Dasar Privasi</a></nav>
+ </div>
+</footer>
+</body>
+</html>
