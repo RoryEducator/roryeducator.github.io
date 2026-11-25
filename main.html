@@ -49,6 +49,12 @@ h3{font:700 20px/1.1 Fredoka,sans-serif;margin:0}
 .sup-blink{animation:supPulse 1.2s ease-in-out infinite}
 a.ib.sup{background:#c8102e;text-decoration:none}a.ib.sup svg{animation:heartBeat 1.4s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.sup-blink,a.ib.sup svg{animation:none}}
+.ib.mp{width:auto;min-width:44px;padding:0 10px;gap:5px;display:flex;align-items:center;font:700 15px Fredoka}.ib.mp b{font:700 14px Fredoka;color:#7d8597}.ib.mp.on b{color:#1f7a3a}.ib.mp.bad b{color:#c8102e}
+.mprow{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff7e0;border-radius:12px;padding:8px 12px}
+.mpcol{display:flex;gap:8px;flex-wrap:wrap}.mpcol button{width:38px;height:38px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #d3cdbf;cursor:pointer}.mpcol button.sel{box-shadow:0 0 0 3px #c8102e}
+.mpemo{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:6px}.mpemo button{border:2px solid #ebe5d6;background:#fff;border-radius:10px;padding:7px 8px;font:600 13px Nunito;text-align:left;cursor:pointer;min-height:38px}.mpemo button:hover{background:#fff7e0}
+.lbt{width:100%;border-collapse:collapse;font:600 14px Nunito;margin:6px 0}.lbt th{text-align:left;font:700 12px Nunito;color:#7d8597;padding:4px}.lbt td{padding:6px 4px;border-top:1px solid #eee;vertical-align:top}.lbt tr.me td{background:#fff7e0}
+.mpchk{display:flex;gap:8px;align-items:center;margin-top:10px;font:600 15px Nunito}.mpchk input{width:20px;height:20px}
 #hudL{position:fixed;left:12px;top:12px;width:220px;z-index:5}
 .bar{height:12px;border-radius:8px;background:#eee6d4;overflow:hidden;margin:5px 0 4px}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--grn),#58b947);transition:width .6s}
@@ -148,11 +154,12 @@ a.ib.sup{background:#c8102e;text-decoration:none}a.ib.sup svg{animation:heartBea
  <div id="hudR">
   <div class="pill" title="Syiling"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#ffc72c" stroke="#c79400" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="#c79400" stroke-width="1.6"/></svg><b id="coinN">0</b></div>
   <div class="pill" title="Reben"><svg viewBox="0 0 24 24"><path d="M8 13 5 22l4-2 2 3 1-9z" fill="#1f7a3a"/><path d="M16 13l3 9-4-2-2 3-1-9z" fill="#c8102e"/><circle cx="12" cy="10" r="8" fill="#ffc72c" stroke="#c79400" stroke-width="1.5"/><circle cx="12" cy="10" r="4" fill="#fff6d6"/></svg><b id="ribN">0</b></div>
+  <button class="ib mp" id="bMp" title="Main bersama pemain lain" aria-label="Pemain dalam talian">👥<b id="mpN">…</b></button>
   <button class="ib" id="bFact" title="Buku Fakta" aria-label="Buku Fakta"><svg viewBox="0 0 24 24" fill="none" stroke="#1c2230" stroke-width="2.2" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 8h6"/></svg></button>
   <button class="ib" id="bMap" title="Jelajah daerah" aria-label="Jelajah daerah"><svg viewBox="0 0 24 24" fill="none" stroke="#1c2230" stroke-width="2.2" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z" fill="#c8102e" stroke="#c8102e"/></svg></button>
   <button class="ib" id="bHelp" title="Cara main" aria-label="Cara main">?</button>
   <button class="ib" id="bSnd" title="Bunyi" aria-label="Bunyi"></button>
-  <a class="ib sup" id="bSup" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" title="Sokong pembuat (derma)" aria-label="Sokong pembuat"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.5 5c2.1 0 3.6 1.2 4.5 2.6h2C13.9 6.2 15.4 5 17.5 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z" fill="#fff"/></svg></a>
+  <a class="ib sup" id="bSup" data-goatcounter-click="sokong-peta" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" title="Sokong pembuat (derma)" aria-label="Sokong pembuat"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.5 5c2.1 0 3.6 1.2 4.5 2.6h2C13.9 6.2 15.4 5 17.5 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z" fill="#fff"/></svg></a>
   <button class="ib" id="bHome" title="Menu utama" aria-label="Menu utama"><svg viewBox="0 0 24 24" fill="none" stroke="#1c2230" stroke-width="2.2" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></button>
  </div>
  <div id="mission" class="card"><div class="weave"></div><div class="pad">
@@ -179,7 +186,7 @@ a.ib.sup{background:#c8102e;text-decoration:none}a.ib.sup svg{animation:heartBea
    <button class="btn ghost" id="bNew" hidden>Mula semula</button>
    <button class="btn ghost" id="bHow">Cara main</button>
   </div>
-  <a class="btn yel sup-blink" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;text-decoration:none">♥ Sokong pembuat game ni</a>
+  <a class="btn yel sup-blink" data-goatcounter-click="sokong-tajuk" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;text-decoration:none">♥ Sokong pembuat game ni</a>
   <div class="credit" style="margin-top:8px;font-size:12px">Pssst!! Yang masih bawah umur minta benar dulu sama parents kalau mahu bagi support.</div>
   <div class="credit"><a href="#" id="bCred">Kredit</a> · <a href="index.html">Laman utama</a> · <a href="privasi.html">Dasar Privasi</a></div>
  </div>
@@ -590,6 +597,7 @@ function drawMap(){
  for(const l of LOCS){if(!locActive(l)||!NPC[l.id])continue;const n=NPC[l.id];spr.push({y:l.y-6,f:()=>drawPerson(g,l.x+28,l.y-6,1.15,n)});}
  WK.forEach((w,i)=>spr.push({y:w.y,f:()=>{drawPerson(g,w.x,w.y,1,w,w.ph,w.mv);if(S.path==='adun'&&!S.talked.includes(i))drawBubble(g,w.x,w.y-48,i===nearW);}}));
  spr.push({y:PL.y,f:()=>drawPony(g,PL.x,PL.y,.62,PL.face,PL.ph,deco(),{moving:PL.moving})});
+ try{mpSprites(spr,g);}catch(e){}
  spr.sort((a,b)=>a.y-b.y).forEach(s=>s.f());
  // birds
  g.strokeStyle='#fff';g.lineWidth=2;birds.forEach(b=>{const f=Math.sin(T*10+b.x*.05)*4;g.beginPath();g.moveTo(b.x-7,b.y-f);g.lineTo(b.x,b.y);g.lineTo(b.x+7,b.y-f);g.stroke();});
@@ -617,7 +625,7 @@ function nearestVoter(){let b=-1,bd=1e9;WK.forEach((w,i)=>{if(S.talked.includes(
 /* minimap */
 const mini=$('#mini'),mctx=mini.getContext('2d');
 function sizeMini(){const r=mini.getBoundingClientRect();mini.width=Math.max(1,Math.round(r.width*DPR));mini.height=Math.max(1,Math.round(r.height*DPR));}
-function drawMini(){const w=mini.width,h=mini.height;if(w<2)return;mctx.drawImage(miniBG,0,0,w,h);const sx=w/WW,sy=h/WH;const tg=taskTarget();if(tg&&Math.sin(T*6)>-.3){mctx.fillStyle='#c8102e';mctx.beginPath();mctx.arc(tg[0]*sx,tg[1]*sy,5*DPR,0,7);mctx.fill();}mctx.strokeStyle='rgba(255,255,255,.9)';mctx.lineWidth=1.5*DPR;const vw=W/zoom,vh=H/zoom;mctx.strokeRect((camX-vw/2)*sx,(camY-vh/2)*sy,vw*sx,vh*sy);mctx.fillStyle='#ffc72c';mctx.strokeStyle='#1c2230';mctx.beginPath();mctx.arc(PL.x*sx,PL.y*sy,4.5*DPR,0,7);mctx.fill();mctx.stroke();}
+function drawMini(){const w=mini.width,h=mini.height;if(w<2)return;mctx.drawImage(miniBG,0,0,w,h);const sx=w/WW,sy=h/WH;const tg=taskTarget();if(tg&&Math.sin(T*6)>-.3){mctx.fillStyle='#c8102e';mctx.beginPath();mctx.arc(tg[0]*sx,tg[1]*sy,5*DPR,0,7);mctx.fill();}mctx.strokeStyle='rgba(255,255,255,.9)';mctx.lineWidth=1.5*DPR;const vw=W/zoom,vh=H/zoom;mctx.strokeRect((camX-vw/2)*sx,(camY-vh/2)*sy,vw*sx,vh*sy);mpMini(sx,sy);mctx.fillStyle='#ffc72c';mctx.strokeStyle='#1c2230';mctx.beginPath();mctx.arc(PL.x*sx,PL.y*sy,4.5*DPR,0,7);mctx.fill();mctx.stroke();}
 
 /* ---------- UI helpers ---------- */
 const modal=$('#modal'),mBody=$('#mBody');let modalOpen=false;
@@ -669,7 +677,7 @@ function openHelp(){openModal(`<div class="lbl">Panduan</div><h2>Cara main</h2><
 <div><b>Calon ADUN:</b> berbual dengan pengundi bergelembung. Jawapan jujur dan realistik tambah sokongan. Rasuah ialah kesalahan!</div>
 <div><b>Jelajah:</b> tekan butang kompas untuk ke Pulau Mantanani, Lasau Podi, Kampung Sayap, Polumpung Melangkap dan banyak lagi. Kumpul cop Pasport Jelajah!</div>
 <div><b>Banjir:</b> sesekali banjir melanda kampung. Bantu APM pindahkan penduduk ke PPS. Dalam kehidupan sebenar, jangan sekali-kali meredah air banjir.</div>
-<div><b>Sokong pembuat:</b> game ni percuma. Kalau suka, ko boleh derma sebarang jumlah di <a href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener">Gumroad</a>.</div>
+<div><b>Main bersama 👥:</b> nampak pemain lain di peta, hantar ucapan dan bersaing di Papan Sokongan ADUN. Nama dijana automatik, tiada sembang bebas.</div><div><b>Sokong pembuat:</b> game ni percuma. Kalau suka, ko boleh derma sebarang jumlah di <a href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener">Gumroad</a>.</div>
 <div><b>Fakta:</b> lawat tempat baru untuk buka fakta sebenar tentang Kota Belud.</div>
 </div><p class="small">Semua watak, parti dan pilihan raya dalam permainan ini adalah rekaan.</p><div class="row"><button class="btn ghost" id="cr">Kredit</button><button class="btn" id="fx">Faham!</button></div>`);bind('#fx',closeModal);bind('#cr',openCredits);}
 function openShop(isTask){
@@ -709,14 +717,14 @@ function ballot(){
  render();
 }
 function countFlow(){
- const total=8640,rosak=Math.round(total*.015),mine=Math.round((total-rosak)*S.sup/100),opp=total-rosak-mine,win=mine>opp;
+ const total=8640,rosak=Math.round(total*.015),mine=Math.round((total-rosak)*S.sup/100),opp=total-rosak-mine,win=mine>opp;ev(win?'adun-menang':'adun-kalah');try{lbSubmit();}catch(e){}
  openModal(`<div class="lbl">Keputusan · Dataran Tempasuk (rekaan)</div><h2>Pengiraan undi</h2>
  <div class="rrow"><div class="top"><span>${esc(S.cname||'Calon Muda')} · ${SYMS[S.symbol||'kuda']}</span><b id="n1">0</b></div><div class="rbar"><i id="b1" style="background:var(--red)"></i></div></div>
  <div class="rrow"><div class="top"><span>${OPP.n} · ${SYMS[OPP.sym]}</span><b id="n2">0</b></div><div class="rbar"><i id="b2" style="background:#2f6db5"></i></div></div>
  <p class="small">Undi rosak: ${rosak} · Jumlah undi: ${total.toLocaleString('ms-MY')}</p><div id="vd" class="say"></div><div class="row"><button class="btn" id="fx" disabled>Teruskan</button></div>`);
  const t0=performance.now();const step=now=>{const k=clamp((now-t0)/3200,0,1),e=1-(1-k)**3;$('#n1').textContent=Math.round(mine*e).toLocaleString('ms-MY');$('#n2').textContent=Math.round(opp*e).toLocaleString('ms-MY');$('#b1').style.width=(mine/total*100*e)+'%';$('#b2').style.width=(opp/total*100*e)+'%';if(k<1&&modalOpen)requestAnimationFrame(step);else{const vd=$('#vd'),b=$('#fx');if(!vd)return;b.disabled=false;
-  if(win){vd.innerHTML=`Pegawai pengurus mengisytiharkan <b>${esc(S.cname||'Calon Muda')}</b> menang dengan majoriti <b>${(mine-opp).toLocaleString('ms-MY')}</b> undi!`;SFX.win();b.onclick=()=>{closeModal();S.elected=true;afterTask(completeTask());};}
-  else{vd.innerHTML=`Encik Bakar menang dengan majoriti ${(opp-mine).toLocaleString('ms-MY')} undi. Sokongan ko ${Math.round(S.sup)}%. Pengundi mahu calon yang mendengar dan berjanji secara realistik.`;SFX.bad();b.textContent='Ulang kempen Hari 4';b.onclick=()=>{closeModal();S.day=4;S.task=0;S.vcount=0;S.talked=[];S.sup=Math.max(S.sup,30);save();updateHUD();dayIntro();};}}};
+  if(win){vd.innerHTML=`Pegawai pengurus mengisytiharkan <b>${esc(S.cname||'Calon Muda')}</b> menang dengan majoriti <b>${(mine-opp).toLocaleString('ms-MY')}</b> undi!${MP.st==='on'?'<br><span class="small">Lihat kedudukan ko di 🏆 Papan Sokongan (butang 👥).</span>':''}`;SFX.win();b.onclick=()=>{closeModal();S.elected=true;afterTask(completeTask());};}
+  else{vd.innerHTML=`Encik Bakar menang dengan majoriti ${(opp-mine).toLocaleString('ms-MY')} undi. Sokongan ko ${Math.round(S.sup)}%. Pengundi mahu calon yang mendengar dan berjanji secara realistik.${MP.st==='on'?'<br><span class="small">Bandingkan dengan calon lain di 🏆 Papan Sokongan (butang 👥).</span>':''}`;SFX.bad();b.textContent='Ulang kempen Hari 4';b.onclick=()=>{closeModal();S.day=4;S.task=0;S.vcount=0;S.talked=[];S.sup=Math.max(S.sup,30);save();updateHUD();dayIntro();};}}};
  requestAnimationFrame(step);
 }
 
@@ -724,7 +732,7 @@ function countFlow(){
 function completeTask(){
  const t=curTask();if(!t)return'none';if(t.game)S.maxLv[t.game]=Math.max(S.maxLv[t.game]||0,t.lv);S.task++;
  const M=MISS();let kind='next';
- if(S.task>=M[S.day-1].tasks.length){if(S.day>=M.length){S.done=true;Object.keys(GAMES).forEach(k=>S.maxLv[k]=3);kind='end';}else{S.day++;S.task=0;S.vcount=0;S.talked=[];kind='day';}}
+ if(S.task>=M[S.day-1].tasks.length){if(S.day>=M.length){S.done=true;Object.keys(GAMES).forEach(k=>S.maxLv[k]=3);kind='end';ev('tamat-'+S.path);}else{S.day++;S.task=0;S.vcount=0;S.talked=[];kind='day';ev(S.path+'-hari-'+S.day);}}
  save();updateHUD();return kind;
 }
 function afterTask(kind){
@@ -747,8 +755,8 @@ function drawConfetti(){const g=ctx;g.setTransform(DPR,0,0,DPR,0,0);confetti.for
 let mode='title',MG=null,MK=1,VW=800,VH=480;
 function computeV(){MK=Math.min(W,H-56)/480;VW=W/MK;VH=(H-56)/MK;}
 const GAMES={};
-function startGame(id,lv,isTask){computeV();MG=GAMES[id].create(lv);Object.assign(MG,{id,lv,isTask,ended:false});mode='mg';$('#hud').classList.add('hidden');$('#mgbar').classList.remove('hidden');$('#mgTitle').textContent=`${GAMES[id].title} · ${['','Mudah','Sederhana','Sukar'][lv]}`;PL.path=[];}
-function toMap(){mode='map';MG=null;$('#mgbar').classList.add('hidden');$('#hud').classList.remove('hidden');$('#title').classList.add('hidden');updateHUD();sizeMini();}
+function startGame(id,lv,isTask){ev('main-'+id);computeV();MG=GAMES[id].create(lv);Object.assign(MG,{id,lv,isTask,ended:false});mode='mg';$('#hud').classList.add('hidden');$('#mgbar').classList.remove('hidden');$('#mgTitle').textContent=`${GAMES[id].title} · ${['','Mudah','Sederhana','Sukar'][lv]}`;PL.path=[];}
+function toMap(){mode='map';mpStart();MG=null;$('#mgbar').classList.add('hidden');$('#hud').classList.remove('hidden');$('#title').classList.add('hidden');updateHUD();sizeMini();}
 function endGame(res){
  if(!MG||MG.ended)return;MG.ended=true;const{id,lv,isTask}=MG;const k=id+lv;const prev=S.best[k]||0;S.best[k]=Math.max(prev,res.stars);S.coins+=res.coins;
  let supG=0;if(S.path==='adun'&&!S.done&&res.stars){supG=res.stars*(id==='ceramah'?3:2);S.sup=Math.min(95,S.sup+supG);}
@@ -1218,8 +1226,9 @@ $('#bSnd').onclick=()=>{muted=!muted;updateHUD();SFX.tap();};
 $('#bHome').onclick=()=>{SFX.tap();save();showTitle();};
 $('#zIn').onclick=()=>{uz=clamp(uz*1.2,.6,1.8);};$('#zOut').onclick=()=>{uz=clamp(uz/1.2,.6,1.8);};
 $('#mgX').onclick=()=>{SFX.tap();exitGame();};
+const ev=n=>{try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:'e/'+n,title:n,event:true});}catch(e){}};
 function choosePath(){openModal(`<div class="lbl">Permainan baharu</div><h2>Pilih laluan</h2><div class="paths"><button class="pathbtn" data-p="koboi"><b>Koboi Tamu Besar</b>Latih Kilat, bantu orang kampung, dan ketuai perarakan kuda di Tamu Besar Kota Belud.</button><button class="pathbtn" data-p="adun"><b>Calon ADUN</b>Hantar borang penamaan, berkempen, cari pengundi, berdebat dan hadapi hari mengundi.</button></div><p class="small">Semua watak, parti dan pilihan raya dalam permainan ini adalah rekaan.</p><div class="row"><button class="btn ghost" id="fx">Batal</button></div>`);
- mBody.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{SFX.ok();closeModal();S=fresh(b.dataset.p);PL.x=S.px;PL.y=S.py;PL.path=[];save();toMap();dayIntro();});bind('#fx',closeModal);}
+ mBody.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{SFX.ok();closeModal();ev('pilih-'+b.dataset.p);S=fresh(b.dataset.p);PL.x=S.px;PL.y=S.py;PL.path=[];save();toMap();dayIntro();});bind('#fx',closeModal);}
 function showTitle(){mode='title';closeModal();$('#hud').classList.add('hidden');$('#mgbar').classList.add('hidden');$('#title').classList.remove('hidden');const sv=load();$('#bStart').textContent=sv?`Sambung · ${sv.path==='adun'?'Calon ADUN':'Koboi'} Hari ${sv.day}`:'Mula main';$('#bNew').hidden=!sv;}
 $('#bStart').onclick=()=>{SFX.tap();const sv=load();if(sv){S=Object.assign(fresh(sv.path),sv);PL.x=S.px;PL.y=S.py;if(!walkable(PL.x,PL.y)){PL.x=668;PL.y=1092;}toMap();}else choosePath();};
 $('#bNew').onclick=()=>{SFX.tap();choosePath();};
@@ -1235,7 +1244,151 @@ $('#bCred').onclick=e=>{e.preventDefault();SFX.tap();openCredits();};
 
 /* ---------- loop ---------- */
 let last=performance.now();
-function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;T+=dt;
+
+/* ---------- berbilang pemain (Firebase Realtime Database) ---------- */
+const MP_CFG={apiKey:"AIzaSyDjzW7H4e7aSKitHWSOJ4Vf_WrYxW72G_0",authDomain:"koboi-tempasuk.firebaseapp.com",databaseURL:"https://koboi-tempasuk-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"koboi-tempasuk",appId:"1:1073606496889:web:50d68856b1f0b654e33aa8"};
+const MP_FBV='https://www.gstatic.com/firebasejs/13.4.0/';
+const MP_ADJ=['Pantas','Berani','Ceria','Bijak','Gagah','Riang','Tangkas','Jujur','Hebat','Comel','Rajin','Tenang','Lincah','Cekap','Mesra','Setia','Ramah','Segak','Ayu','Perkasa','Cerdik','Tabah','Sabar','Gembira','Kuat','Laju','Cergas','Manis','Molek','Bersinar','Mulia','Pemurah','Kreatif','Aktif','Cemerlang','Terbilang','Ajaib','Bertuah','Gemilang','Wira'];
+const MP_NOUN=['Koboi','Penunggang','Helang','Penyu','Kelip','Bintang','Ombak','Pelangi','Gunung','Padi','Rusa','Burung','Ikan','Kerbau','Bayu','Dastar','Sampan','Jala','Mutiara','Teratai','Merpati','Pari','Lumba','Belalang','Kancil','Tupai','Enggang','Kijang','Ketam','Udang','Pelanduk','Murai','Bayan','Kenari','Kuda','Bulan','Matahari','Awan','Tamu','Rebana'];
+const MP_COAT=[['#8a5a2b','#4a2e14'],['#3d2b1f','#1e140d'],['#c9c2b8','#8f877c'],['#f2efe9','#b9b2a6'],['#a0522d','#5c2c12'],['#555c66','#2c3036'],['#d4a35a','#8c6224'],['#6b3e26','#2e180c']];
+const MP_SUIT=['#2f6db5','#c8102e','#1f7a3a','#8e3b8a','#c66b2d','#2a9d8f','#e05a8a','#3a5a40'];
+const MP_EMO=[['👋','Salam!'],['😄','Hai kawan!'],['🐴','Jom berkuda!'],['🎣','Jom menjala!'],['🛍️','Jom ke Tamu!'],['🌾','Jom ke sawah!'],['🏆','Tahniah!'],['👍','Bagus!'],['🙏','Terima kasih!'],['❤️','Suka game ni!'],['😂','Haha!'],['😮','Wah!'],['👀','Mana ko pergi?'],['⛰️','Cantik Kinabalu!'],['🌊','Jom bantu banjir!'],['🗳️','Undi jujur!'],['⭐','Kumpul reben!'],['🏃','Lumba ke Tamu!'],['😴','Rehat dulu'],['👋','Jumpa lagi!']];
+const MP_GICON={tamu:'🛍️',padi:'🌾',dastar:'🧵',sampan:'🛶',parade:'🐴',kelip:'✨',pantai:'🏖️',banjir:'🌊',ceramah:'🎤',jala:'🎣',snorkel:'🤿',renang:'🏊',jog:'🏃',bintang:'🔭',denai:'🥾',kem:'⛺'};
+const MP_KEY='koboi-tempasuk-mp-v1',MP_MAX=12;
+const MP={on:true,show:true,st:'off',uid:null,D:null,db:null,me:null,joined:false,o:{},off:0,last:{x:-1,y:-1,t:0,s:-1},ecd:0,myE:null,tmo:0,id:null};
+(function(){let d=null;try{d=JSON.parse(localStorage.getItem(MP_KEY));}catch(e){}
+ const ri=n=>Math.floor(Math.random()*n);
+ if(!d||typeof d.a!=='number')d={a:ri(MP_ADJ.length),b:ri(MP_NOUN.length),k:ri(100),c:ri(8),on:true,show:true};
+ MP.id=d;MP.on=d.on!==false;MP.show=d.show!==false;})();
+function mpSave(){try{localStorage.setItem(MP_KEY,JSON.stringify({...MP.id,on:MP.on,show:MP.show}));}catch(e){}}
+const mpName=d=>`${MP_NOUN[d.b]||'Koboi'} ${MP_ADJ[d.a]||'Pantas'} ${d.k|0}`;
+const mpNow=()=>Date.now()+MP.off;
+const mpS=()=>mode==='mg'&&MG?Object.keys(GAMES).indexOf(MG.id)+1:0;
+const mpAlive=o=>o&&o.v&&mpNow()-(o.v.t||0)<60000;
+function mpCount(){let n=MP.joined?1:0;for(const k in MP.o)if(mpAlive(MP.o[k]))n++;return n;}
+function mpBtn(){const b=$('#bMp');if(!b)return;const n=$('#mpN');b.classList.remove('on','bad');
+ if(!MP.on){n.textContent='Off';return;}
+ if(MP.st==='on'){b.classList.add('on');n.textContent=mpCount();}
+ else if(MP.st==='err'||MP.st==='full'){b.classList.add('bad');n.textContent='!';}
+ else n.textContent='…';}
+async function mpStart(){
+ if(!MP.on||MP.st!=='off')return;MP.st='connecting';mpBtn();
+ clearTimeout(MP.tmo);MP.tmo=setTimeout(()=>{if(MP.st==='connecting'){MP.st='full';mpBtn();}},20000);
+ try{
+  const[A,Au,D]=await Promise.all([import(MP_FBV+'firebase-app.js'),import(MP_FBV+'firebase-auth.js'),import(MP_FBV+'firebase-database.js')]);
+  MP.D=D;const app=A.initializeApp(MP_CFG,'koboi-mp');const auth=Au.getAuth(app);
+  const cred=await Au.signInAnonymously(auth);MP.uid=cred.user.uid;
+  const db=D.getDatabase(app);MP.db=db;
+  D.onValue(D.ref(db,'.info/serverTimeOffset'),s=>{MP.off=s.val()||0;});
+  D.onValue(D.ref(db,'.info/connected'),s=>{if(s.val()){MP.st='on';clearTimeout(MP.tmo);MP.joined=false;}else if(MP.st==='on'){MP.st='connecting';MP.joined=false;}mpBtn();});
+  const q=D.query(D.ref(db,'w/p'),D.orderByChild('t'),D.startAt(Date.now()-120000));
+  const fail=()=>{MP.st='err';mpBtn();};
+  D.onChildAdded(q,mpSnap,fail);D.onChildChanged(q,mpSnap,fail);D.onChildRemoved(q,s=>{delete MP.o[s.key];mpBtn();},fail);
+ }catch(e){MP.st='err';mpBtn();}
+}
+function mpSnap(s){const v=s.val();if(!v||s.key===MP.uid)return;let o=MP.o[s.key];
+ if(!o)o=MP.o[s.key]={dx:v.x,dy:v.y,face:1,ph:Math.random()*6,mv:false};
+ o.v=v;mpBtn();}
+function mpJoin(){
+ if(!MP.uid||!MP.D||MP.joined||mode==='title'||document.hidden)return;
+ const D=MP.D;MP.me=D.ref(MP.db,'w/p/'+MP.uid);MP.joined=true;
+ D.onDisconnect(MP.me).remove().catch(()=>{});
+ const s=mpS();
+ D.set(MP.me,{a:MP.id.a,b:MP.id.b,k:MP.id.k,c:MP.id.c,x:Math.round(clamp(PL.x,0,2000)),y:Math.round(clamp(PL.y,0,1400)),s,h:S.path==='adun'?1:0,t:D.serverTimestamp()}).catch(()=>{MP.joined=false;});
+ MP.last={x:PL.x,y:PL.y,t:performance.now(),s};mpBtn();}
+function mpLeave(){if(!MP.joined||!MP.D)return;MP.joined=false;MP.D.remove(MP.me).catch(()=>{});mpBtn();}
+function mpUpd(u){if(!MP.joined)return;MP.D.update(MP.me,u).catch(()=>{});}
+function mpTick(dt){
+ if(MP.st!=='on')return;
+ if(mode==='title'||document.hidden){mpLeave();}
+ else if(!MP.joined)mpJoin();
+ else{const D=MP.D,s=mpS(),nt=performance.now(),d=Math.hypot(PL.x-MP.last.x,PL.y-MP.last.y),el=nt-MP.last.t;let u=null;
+  if(s!==MP.last.s&&el>400)u={s};
+  else if(d>6&&el>1200)u={};
+  else if(!PL.moving&&d>1&&el>450)u={};
+  else if(el>20000)u={};
+  if(u){u.x=Math.round(clamp(PL.x,0,2000));u.y=Math.round(clamp(PL.y,0,1400));u.t=D.serverTimestamp();mpUpd(u);MP.last={x:PL.x,y:PL.y,t:nt,s};}}
+ const now=mpNow();
+ for(const k in MP.o){const o=MP.o[k];if(!o.v)continue;if(now-(o.v.t||0)>300000){delete MP.o[k];continue;}
+  const dx=o.v.x-o.dx,dy=o.v.y-o.dy,d=Math.hypot(dx,dy);
+  if(d>420){o.dx=o.v.x;o.dy=o.v.y;o.mv=false;}
+  else if(d>1.5){const st=Math.min(d,190*dt);o.dx+=dx/d*st;o.dy+=dy/d*st;o.mv=true;o.ph+=dt*11;if(Math.abs(dx)>2)o.face=dx>0?1:-1;}
+  else o.mv=false;}
+ MP.bt=(MP.bt||0)+dt;if(MP.bt>1){MP.bt=0;mpBtn();}
+}
+function mpBubble(g,x,y,i){const e=MP_EMO[i];if(!e)return;const fs=13;g.font=`700 ${fs}px ${FONT}`;const s=e[0]+' '+e[1],w=g.measureText(s).width+16;
+ g.fillStyle='#fff';g.strokeStyle='#1c2230';g.lineWidth=2;rr(g,x-w/2,y-24,w,24,9);g.fill();g.stroke();
+ g.beginPath();g.moveTo(x-5,y);g.lineTo(x,y+7);g.lineTo(x+5,y);g.closePath();g.fill();
+ txt(g,s,x,y-12,fs,'#1c2230','center',700);}
+function mpSprites(spr,g){
+ const now=mpNow();
+ if(MP.myE&&MP.myE.until>performance.now()){const i=MP.myE.i;spr.push({y:PL.y+.5,f:()=>mpBubble(g,PL.x,PL.y-88,i)});}
+ if(!MP.show||MP.st!=='on')return;
+ const L=[];for(const k in MP.o){const o=MP.o[k];if(!mpAlive(o))continue;o.dist=Math.hypot(o.dx-PL.x,o.dy-PL.y);L.push(o);}
+ L.sort((a,b)=>a.dist-b.dist);const sh=L.slice(0,MP_MAX);
+ const crowd=sh.filter(o=>o.dist<220).length>5;
+ const fs=Math.max(10,11/zoom);
+ for(const o of sh){const v=o.v,c=clamp(v.c|0,0,7);
+  if(v.s>0){const ic=MP_GICON[Object.keys(GAMES)[v.s-1]]||'🎮';
+   spr.push({y:o.dy,f:()=>{g.globalAlpha=.92;g.fillStyle='#fff';g.strokeStyle='#1c2230';g.lineWidth=2;g.beginPath();g.arc(o.dx,o.dy-14,13,0,7);g.fill();g.stroke();txt(g,ic,o.dx,o.dy-13,15,'#1c2230');g.globalAlpha=1;}});continue;}
+  spr.push({y:o.dy,f:()=>{
+   g.globalAlpha=.85;drawPony(g,o.dx,o.dy,.52,o.face,o.ph,{},{moving:o.mv,coat:MP_COAT[c][0],dark:MP_COAT[c][1],suit:MP_SUIT[c]});g.globalAlpha=1;
+   const em=v.e>=0&&v.et&&now-v.et<4000;
+   if(em)mpBubble(g,o.dx,o.dy-74,v.e|0);
+   else if(!crowd)txt(g,mpName(v),o.dx,o.dy-66,fs,'#fff','center',700,['rgba(28,34,48,.75)',3]);}});}
+}
+function mpMini(sx,sy){if(!MP.show||MP.st!=='on')return;mctx.fillStyle='rgba(255,255,255,.95)';mctx.strokeStyle='#2f6db5';mctx.lineWidth=1*DPR;
+ for(const k in MP.o){const o=MP.o[k];if(!mpAlive(o))continue;mctx.beginPath();mctx.arc(o.dx*sx,o.dy*sy,2.6*DPR,0,7);mctx.fill();mctx.stroke();}}
+function mpEmote(i){if(performance.now()<MP.ecd){toast('Tunggu sekejap sebelum hantar lagi.');return;}MP.ecd=performance.now()+2200;
+ MP.myE={i,until:performance.now()+4000};
+ if(MP.joined)mpUpd({e:i,et:MP.D.serverTimestamp()});}
+function mpPanel(){SFX.tap();
+ const st=!MP.on?'Mod dalam talian dimatikan. Ko main solo.':MP.st==='on'?`Bersambung. ${mpCount()} pemain dalam dunia Koboi Tempasuk sekarang.`:MP.st==='connecting'?'Sedang menyambung…':MP.st==='full'?'Tak dapat menyambung. Dunia mungkin penuh (maks 100 pemain serentak). Cuba lagi sekejap lagi.':'Tak dapat menyambung. Semak internet ko, kemudian cuba lagi.';
+ openModal(`<div class="lbl">Dunia dalam talian</div><h2>👥 Main bersama</h2><p class="small">${st}</p>
+ <div class="mprow"><div>Nama ko: <b id="mpNm">${esc(mpName(MP.id))}</b></div><button class="btn sm ghost" id="mpRe">🎲 Tukar nama</button></div>
+ <div class="lbl" style="margin-top:10px">Warna kuda & baju</div><div class="mpcol">${MP_COAT.map((c,i)=>`<button data-c="${i}" aria-label="Warna ${i+1}" class="${i===MP.id.c?'sel':''}" style="background:linear-gradient(135deg,${c[0]} 55%,${MP_SUIT[i]} 55%)"></button>`).join('')}</div>
+ <div class="lbl" style="margin-top:10px">Hantar ucapan</div><div class="mpemo">${MP_EMO.map((e,i)=>`<button data-e="${i}">${e[0]} ${e[1]}</button>`).join('')}</div>
+ <button class="btn sm yel" id="mpLb" style="margin-top:12px">🏆 Papan Sokongan ADUN</button>
+ <label class="mpchk"><input type="checkbox" id="mpShow" ${MP.show?'checked':''}> Tunjuk pemain lain di peta</label>
+ <label class="mpchk"><input type="checkbox" id="mpOn" ${MP.on?'checked':''}> Main dalam talian</label>
+ <p class="small">Nama dijana automatik dan hanya ucapan sedia ada boleh dihantar, jadi selamat untuk semua umur. Tiada maklumat peribadi dikongsi.</p>
+ <div class="row">${MP.on&&(MP.st==='err'||MP.st==='full')?'<button class="btn ghost" id="mpRetry">Cuba lagi</button>':''}<button class="btn" id="fx">Tutup</button></div>`);
+ bind('#fx',closeModal);
+ bind('#mpLb',()=>lbOpen());
+ bind('#mpRe',()=>{SFX.tap();const ri=n=>Math.floor(Math.random()*n);MP.id.a=ri(MP_ADJ.length);MP.id.b=ri(MP_NOUN.length);MP.id.k=ri(100);mpSave();$('#mpNm').textContent=mpName(MP.id);mpUpd({a:MP.id.a,b:MP.id.b,k:MP.id.k});});
+ mBody.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{SFX.tap();MP.id.c=+b.dataset.c;mpSave();mBody.querySelectorAll('[data-c]').forEach(x=>x.classList.toggle('sel',x===b));mpUpd({c:MP.id.c});});
+ mBody.querySelectorAll('[data-e]').forEach(b=>b.onclick=()=>{SFX.ok();closeModal();mpEmote(+b.dataset.e);});
+ $('#mpShow').onchange=e=>{MP.show=e.target.checked;mpSave();};
+ $('#mpOn').onchange=e=>{MP.on=e.target.checked;mpSave();
+  if(!MP.on){mpLeave();if(MP.D&&MP.db)MP.D.goOffline(MP.db);}
+  else if(MP.D&&MP.db){MP.D.goOnline(MP.db);}else{MP.st='off';mpStart();}
+  mpBtn();};
+ bind('#mpRetry',()=>{closeModal();if(MP.D&&MP.db){MP.D.goOffline(MP.db);MP.D.goOnline(MP.db);MP.st='connecting';mpBtn();}else{MP.st='off';mpStart();}});
+}
+
+/* papan sokongan ADUN */
+const LB_KEY='koboi-tempasuk-lb-v1',LB_SYM=['kuda','kompang','layang','payung'],WEEK=7*864e5;
+const lbMaj=u=>{const tot=8640,ros=Math.round(tot*.015),m=Math.round((tot-ros)*u/100);return m-(tot-ros-m);};
+function lbSubmit(){if(!MP.D||MP.st!=='on'||!MP.uid)return;const u=Math.round(clamp(S.sup,0,95));let b=null;try{b=JSON.parse(localStorage.getItem(LB_KEY));}catch(e){}
+ if(b&&Date.now()-b.t<WEEK&&b.u>=u)return;
+ const D=MP.D;D.set(D.ref(MP.db,'w/lb/'+MP.uid),{a:MP.id.a,b:MP.id.b,k:MP.id.k,c:MP.id.c,y:Math.max(0,LB_SYM.indexOf(S.symbol||'kuda')),u,w:lbMaj(u)>0?1:0,t:D.serverTimestamp()}).then(()=>{try{localStorage.setItem(LB_KEY,JSON.stringify({u,t:Date.now()}));}catch(e){}}).catch(()=>{});}
+let lbTok=0;
+async function lbOpen(){SFX.tap();const tk=++lbTok;
+ const shell=b=>openModal(`<div id="lbW"></div><div class="lbl">Pilihan raya rekaan · minggu ini</div><h2>🏆 Papan Sokongan ADUN</h2>${b}<p class="small">Kedudukan ikut sokongan rakyat tertinggi dalam 7 hari. Menang dengan cara jujur: dengar pengundi, tolak rasuah, berdebat dengan tepat. Nama calon dijana automatik.</p><div class="row"><button class="btn" id="fx">Tutup</button></div>`)||bind('#fx',closeModal);
+ if(!MP.on||MP.st!=='on'||!MP.D){shell('<p>Papan sokongan perlukan mod dalam talian. Hidupkan dalam menu 👥, kemudian cuba lagi.</p>');return;}
+ shell('<p>Memuatkan…</p>');
+ try{const D=MP.D;const snap=await D.get(D.query(D.ref(MP.db,'w/lb'),D.orderByChild('t'),D.startAt(mpNow()-WEEK)));
+  const L=[];snap.forEach(c=>{const v=c.val();if(v&&typeof v.u==='number')L.push({...v,me:c.key===MP.uid});});
+  L.sort((x,y)=>y.u-x.u||x.t-y.t);const mi=L.findIndex(v=>v.me);
+  const row=(v,i)=>{const mj=lbMaj(v.u);return `<tr class="${v.me?'me':''}"><td>${i<3?['🥇','🥈','🥉'][i]:i+1}</td><td><b>${esc(mpName(v))}</b>${v.me?' (ko)':''}<br><span class="small">${SYMS[LB_SYM[v.y]]||'Kuda'}</span></td><td><b>${v.u|0}%</b></td><td>${mj>0?'Menang +'+mj.toLocaleString('ms-MY'):'Kalah'}</td></tr>`;};
+  let body=L.length?`<table class="lbt"><tr><th>#</th><th>Calon</th><th>Sokongan</th><th>Keputusan</th></tr>${L.slice(0,10).map(row).join('')}${mi>=10?`<tr><td colspan="4" style="text-align:center">⋯</td></tr>${row(L[mi],mi)}`:''}</table>`:'<p>Belum ada calon minggu ini. Jadilah yang pertama!</p>';
+  if(mi<0)body+='<p class="small">Ko belum ada dalam senarai. Tamatkan laluan Calon ADUN sehingga pengiraan undi.</p>';
+  if(tk===lbTok&&modalOpen&&$('#lbW'))shell(body);}
+ catch(e){if(tk===lbTok&&modalOpen&&$('#lbW'))shell('<p>Tak dapat memuatkan papan sokongan. Cuba lagi sekejap lagi.</p>');}}
+
+$('#bMp').onclick=mpPanel;
+document.addEventListener('visibilitychange',()=>{if(document.hidden)mpLeave();});
+function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;T+=dt;try{mpTick(dt);}catch(e){}
  try{if(mode==='title')drawTitle(dt);
  else if(mode==='map'){updateMap(dt);drawMap();drawMini();}
  else if(mode==='mg'&&MG){computeV();if(!MG.ended&&!MG.paused&&!modalOpen)MG.update(dt);if(MG){ctx.setTransform(DPR*MK,0,0,DPR*MK,0,56*DPR);ctx.clearRect(0,0,VW,VH);MG.draw(ctx);const h=MG.hud();if($('#mgStat').textContent!==h)$('#mgStat').textContent=h;}}}catch(err){console.error(err);}
