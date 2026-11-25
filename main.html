@@ -44,6 +44,11 @@ h3{font:700 20px/1.1 Fredoka,sans-serif;margin:0}
 .btn:focus-visible,.ib:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
 .ib{width:44px;height:44px;border-radius:12px;border:0;background:#fff;color:var(--ink);box-shadow:0 3px 0 rgba(0,0,0,.25);display:grid;place-items:center;cursor:pointer;font:700 20px Fredoka;padding:0;flex:none}
 .ib svg{width:22px;height:22px}
+@keyframes supPulse{0%,100%{transform:scale(1);box-shadow:0 4px 0 #c79400,0 0 0 0 rgba(255,199,44,.8)}50%{transform:scale(1.07);box-shadow:0 4px 0 #c79400,0 0 0 12px rgba(255,199,44,0)}}
+@keyframes heartBeat{0%,100%{transform:scale(1)}15%{transform:scale(1.25)}30%{transform:scale(1)}45%{transform:scale(1.18)}}
+.sup-blink{animation:supPulse 1.2s ease-in-out infinite}
+a.ib.sup{background:#c8102e;text-decoration:none}a.ib.sup svg{animation:heartBeat 1.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.sup-blink,a.ib.sup svg{animation:none}}
 #hudL{position:fixed;left:12px;top:12px;width:220px;z-index:5}
 .bar{height:12px;border-radius:8px;background:#eee6d4;overflow:hidden;margin:5px 0 4px}
 .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--grn),#58b947);transition:width .6s}
@@ -147,6 +152,7 @@ h3{font:700 20px/1.1 Fredoka,sans-serif;margin:0}
   <button class="ib" id="bMap" title="Jelajah daerah" aria-label="Jelajah daerah"><svg viewBox="0 0 24 24" fill="none" stroke="#1c2230" stroke-width="2.2" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z" fill="#c8102e" stroke="#c8102e"/></svg></button>
   <button class="ib" id="bHelp" title="Cara main" aria-label="Cara main">?</button>
   <button class="ib" id="bSnd" title="Bunyi" aria-label="Bunyi"></button>
+  <a class="ib sup" id="bSup" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" title="Sokong pembuat (derma)" aria-label="Sokong pembuat"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.5 5c2.1 0 3.6 1.2 4.5 2.6h2C13.9 6.2 15.4 5 17.5 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z" fill="#fff"/></svg></a>
   <button class="ib" id="bHome" title="Menu utama" aria-label="Menu utama"><svg viewBox="0 0 24 24" fill="none" stroke="#1c2230" stroke-width="2.2" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></button>
  </div>
  <div id="mission" class="card"><div class="weave"></div><div class="pad">
@@ -173,9 +179,9 @@ h3{font:700 20px/1.1 Fredoka,sans-serif;margin:0}
    <button class="btn ghost" id="bNew" hidden>Mula semula</button>
    <button class="btn ghost" id="bHow">Cara main</button>
   </div>
+  <a class="btn yel sup-blink" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;text-decoration:none">♥ Sokong pembuat game ni</a>
+  <div class="credit" style="margin-top:8px;font-size:12px">Derma sebarang jumlah. Adik-adik, minta izin ibu bapa dulu ya.</div>
   <div class="credit"><a href="#" id="bCred">Kredit</a> · <a href="index.html">Laman utama</a> · <a href="privasi.html">Dasar Privasi</a></div>
-  <a class="btn yel" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;text-decoration:none">Sokong pembuat ♥</a>
-  <div class="credit" style="margin-top:6px;font-size:12px">Derma sebarang jumlah. Adik-adik, minta izin ibu bapa dulu ya.</div>
  </div>
 </div>
 
