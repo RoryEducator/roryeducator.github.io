@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Main Koboi Tempasuk</title>
-<meta name="description" content="Koboi Tempasuk: game pelayar percuma tentang Kota Belud, Sabah. Latih kuda Kilat, jelajah Pulau Mantanani, Lasau Podi, Kampung Sayap dan ketuai perarakan Tamu Besar.">
+<meta name="description" content="Koboi Tempasuk: game pelayar percuma tentang Kota Belud, Sabah. Latih kuda Kilat, jelajah Pulau Mantanani, Lasau Podi, Kampung Sayap, ketuai perarakan Tamu Besar atau bertanding sebagai calon ADUN.">
 <!-- ===== GOOGLE ADSENSE (H5 Games Ads) =====
  1. Selepas akaun AdSense dan H5 Games Ads diluluskan, buang tanda komen pada baris <script ...adsbygoogle.js> di bawah.
  2. Tukar ca-pub-XXXXXXXXXXXXXXXX kepada ID penerbit ko.
@@ -167,13 +167,13 @@ h3{font:700 20px/1.1 Fredoka,sans-serif;margin:0}
   <span class="tsub">Kota Belud · Sabah</span>
   <h1>Koboi<br>Tempasuk</h1>
   <div class="weave"></div>
-  <p>Jelajah Kota Belud bersama kuda ko, Kilat. Bantu orang kampung, terokai tempat menarik di seluruh daerah, dan ketuai perarakan Tamu Besar!</p>
+  <p>Jelajah Kota Belud dengan kuda ko, Kilat. Pilih laluan: ketuai perarakan Tamu Besar, atau bertanding sebagai calon ADUN.</p>
   <div class="tbtns">
    <button class="btn big" id="bStart">Mula main</button>
    <button class="btn ghost" id="bNew" hidden>Mula semula</button>
    <button class="btn ghost" id="bHow">Cara main</button>
   </div>
-  <div class="credit"><a href="#" id="bCred">Kredit</a> · <a href="index.html" style="color:#fff">Laman utama</a> · <a href="privasi.html" style="color:#fff">Dasar Privasi</a></div>
+  <div class="credit"><a href="#" id="bCred">Kredit</a> · <a href="index.html">Laman utama</a> · <a href="privasi.html">Dasar Privasi</a></div>
   <a class="btn yel" href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;text-decoration:none">Sokong pembuat ♥</a>
   <div class="credit" style="margin-top:6px;font-size:12px">Derma sebarang jumlah. Adik-adik, minta izin ibu bapa dulu ya.</div>
  </div>
@@ -660,11 +660,12 @@ function openHelp(){openModal(`<div class="lbl">Panduan</div><h2>Cara main</h2><
 <div><b>Tugasan:</b> kad bawah kiri. <i>Pandu ke sana</i> bawa Kilat ikut jalan.</div>
 <div><b>Reben:</b> 1 hingga 3 reben setiap permainan. Perlu sekurang-kurangnya 1 reben untuk siapkan tugasan.</div>
 <div><b>Syiling:</b> beli hiasan Kilat di Kedai Hiasan Kuda. Setiap hiasan tambah bonus perarakan 3%.</div>
+<div><b>Calon ADUN:</b> berbual dengan pengundi bergelembung. Jawapan jujur dan realistik tambah sokongan. Rasuah ialah kesalahan!</div>
 <div><b>Jelajah:</b> tekan butang kompas untuk ke Pulau Mantanani, Lasau Podi, Kampung Sayap, Polumpung Melangkap dan banyak lagi. Kumpul cop Pasport Jelajah!</div>
 <div><b>Banjir:</b> sesekali banjir melanda kampung. Bantu APM pindahkan penduduk ke PPS. Dalam kehidupan sebenar, jangan sekali-kali meredah air banjir.</div>
-<div><b>Sokong pembuat:</b> game ni percuma. Kalau suka, ko boleh derma sebarang jumlah di <a href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener">pennachart.gumroad.com/l/vdemb</a>.</div>
+<div><b>Sokong pembuat:</b> game ni percuma. Kalau suka, ko boleh derma sebarang jumlah di <a href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener">Gumroad</a>.</div>
 <div><b>Fakta:</b> lawat tempat baru untuk buka fakta sebenar tentang Kota Belud.</div>
-</div><p class="small">Semua watak dalam permainan ini adalah rekaan. Peta ialah lakaran, bukan skala sebenar.</p><div class="row"><button class="btn ghost" id="cr">Kredit</button><button class="btn" id="fx">Faham!</button></div>`);bind('#fx',closeModal);bind('#cr',openCredits);}
+</div><p class="small">Semua watak, parti dan pilihan raya dalam permainan ini adalah rekaan.</p><div class="row"><button class="btn ghost" id="cr">Kredit</button><button class="btn" id="fx">Faham!</button></div>`);bind('#fx',closeModal);bind('#cr',openCredits);}
 function openShop(isTask){
  const render=()=>{openModal(`<div class="who"><div class="av" style="background:${NPC.kedai.col}">UL</div><div><div class="lbl">Kedai Hiasan Kuda</div><h3>Uncle Lim</h3></div></div><p class="say" style="margin:10px 0">Mau hias Kilat? Semua buatan tangan, bah. Setiap hiasan beri bonus +3% dalam perarakan.</p><canvas id="pv" width="520" height="300"></canvas><div class="shop">${DECO.map(d=>{const own=S.owned.includes(d.id);return `<div class="si"><div class="n"><b>${d.n}</b><span class="small">${own?'Dipakai oleh Kilat':d.p+' syiling'}</span></div>${own?'<span class="small">✓</span>':`<button class="btn ${S.coins>=d.p?'':'ghost'}" data-b="${d.id}">Beli · ${d.p}</button>`}</div>`;}).join('')}</div><div class="row"><span class="small" style="margin-right:auto;align-self:center">Syiling ko: ${S.coins}</span><button class="btn grn" id="fx">Siap</button></div>`);
   const pv=$('#pv').getContext('2d');pv.scale(2,2);drawPony(pv,120,128,1.15,1,1.2,deco(),{});
@@ -1144,7 +1145,6 @@ Object.assign(FACTS,{
  melangkap:['Polumpung Melangkap','Tapak perkhemahan ini di Kampung Melangkap Baru, kira-kira 29 km dari pekan Kota Belud, di tepi Sungai Panataran. Nama "Polumpung" berasal daripada perkataan Dusun yang bermaksud kawasan pulau.'],
  banjir:['Banjir di Kota Belud','Kampung Bobot, Gunding dan Labuan antara kampung yang pernah terjejas banjir selepas hujan lebat berterusan. Mangsa dipindahkan ke Pusat Pemindahan Sementara (PPS), contohnya Dewan Masyarakat Kota Belud.'],
 });
-delete FACTS.dewan;delete FACTS.sekolah;
 const placeName=id=>(LOC[id]||DESTM[id]||{name:id}).name;
 function dlabel(g,s,x,y,c){g.font=`600 11px ${FONT}`;const w=g.measureText(s).width+10;g.fillStyle='rgba(255,255,255,.9)';rr(g,x-w/2,y-8,w,16,5);g.fill();txt(g,s,x,y,11,c,'center',600);}
 function drawDistrict(sel){const c=$('#dmap');if(!c)return;const g=c.getContext('2d');g.setTransform(2,0,0,2,0,0);
@@ -1212,10 +1212,9 @@ $('#bSnd').onclick=()=>{muted=!muted;updateHUD();SFX.tap();};
 $('#bHome').onclick=()=>{SFX.tap();save();showTitle();};
 $('#zIn').onclick=()=>{uz=clamp(uz*1.2,.6,1.8);};$('#zOut').onclick=()=>{uz=clamp(uz/1.2,.6,1.8);};
 $('#mgX').onclick=()=>{SFX.tap();exitGame();};
-function choosePath(){const sv=load();if(!sv){S=fresh('koboi');PL.x=S.px;PL.y=S.py;PL.path=[];save();toMap();dayIntro();return;}openModal(`<h2>Mula semula?</h2><p class="say">Semua kemajuan (syiling, reben, cop pasport) akan dipadam.</p><div class="row"><button class="btn ghost" id="fx">Batal</button><button class="btn" id="go">Ya, mula semula</button></div>`);bind('#fx',closeModal);bind('#go',()=>{closeModal();S=fresh('koboi');PL.x=S.px;PL.y=S.py;PL.path=[];save();toMap();dayIntro();});}
-function choosePathOld(){openModal(`<div class="lbl">Permainan baharu</div><h2>Pilih laluan</h2><div class="paths"><button class="pathbtn" data-p="koboi"><b>Koboi Tamu Besar</b>Latih Kilat, bantu orang kampung, dan ketuai perarakan kuda di Tamu Besar Kota Belud.</button><button class="pathbtn" data-p="adun"><b>Calon ADUN</b>Hantar borang penamaan, berkempen, cari pengundi, berdebat dan hadapi hari mengundi.</button></div><p class="small">Semua watak dalam permainan ini adalah rekaan. Peta ialah lakaran, bukan skala sebenar.</p><div class="row"><button class="btn ghost" id="fx">Batal</button></div>`);
+function choosePath(){openModal(`<div class="lbl">Permainan baharu</div><h2>Pilih laluan</h2><div class="paths"><button class="pathbtn" data-p="koboi"><b>Koboi Tamu Besar</b>Latih Kilat, bantu orang kampung, dan ketuai perarakan kuda di Tamu Besar Kota Belud.</button><button class="pathbtn" data-p="adun"><b>Calon ADUN</b>Hantar borang penamaan, berkempen, cari pengundi, berdebat dan hadapi hari mengundi.</button></div><p class="small">Semua watak, parti dan pilihan raya dalam permainan ini adalah rekaan.</p><div class="row"><button class="btn ghost" id="fx">Batal</button></div>`);
  mBody.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{SFX.ok();closeModal();S=fresh(b.dataset.p);PL.x=S.px;PL.y=S.py;PL.path=[];save();toMap();dayIntro();});bind('#fx',closeModal);}
-function showTitle(){mode='title';closeModal();$('#hud').classList.add('hidden');$('#mgbar').classList.add('hidden');$('#title').classList.remove('hidden');const sv=load();$('#bStart').textContent=sv?`Sambung · Hari ${sv.day}`:'Mula main';$('#bNew').hidden=!sv;}
+function showTitle(){mode='title';closeModal();$('#hud').classList.add('hidden');$('#mgbar').classList.add('hidden');$('#title').classList.remove('hidden');const sv=load();$('#bStart').textContent=sv?`Sambung · ${sv.path==='adun'?'Calon ADUN':'Koboi'} Hari ${sv.day}`:'Mula main';$('#bNew').hidden=!sv;}
 $('#bStart').onclick=()=>{SFX.tap();const sv=load();if(sv){S=Object.assign(fresh(sv.path),sv);PL.x=S.px;PL.y=S.py;if(!walkable(PL.x,PL.y)){PL.x=668;PL.y=1092;}toMap();}else choosePath();};
 $('#bNew').onclick=()=>{SFX.tap();choosePath();};
 $('#bHow').onclick=()=>{SFX.tap();openHelp();};
@@ -1224,7 +1223,7 @@ function openCredits(){openModal(`<div class="lbl">Kredit</div><h2>Koboi Tempasu
 <div><b>Hubungi:</b> roryjack10@gmail.com</div>
 <div><b>Fakta Kota Belud:</b> disemak daripada sumber awam seperti berita dan laman pelancongan.</div>
 <div><b>Fon:</b> Fredoka dan Nunito (Google Fonts)</div>
-<div><b>Watak dan peta:</b> rekaan untuk permainan. Peta ialah lakaran, bukan skala sebenar.</div>
+<div><b>Watak, peta dan pilihan raya:</b> rekaan untuk permainan. Peta ialah lakaran, bukan skala sebenar.</div>
 </div><p class="small">Suka game ni? <a href="https://pennachart.gumroad.com/l/vdemb" target="_blank" rel="noopener">Sokong pembuat di Gumroad</a>.</p><div class="row"><button class="btn" id="fx">Tutup</button></div>`);bind('#fx',closeModal);}
 $('#bCred').onclick=e=>{e.preventDefault();SFX.tap();openCredits();};
 
